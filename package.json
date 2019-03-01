@@ -9,7 +9,8 @@
   "scripts": {
     "publish": "npm run publish --public",
     "test": "jest -c .jest-config.json",
-    "test:coveralls": "jest -c .jest-config.json | coveralls"
+    "test:coverage": "jest -c .jest-config.json --coverage",
+    "test:coverage:coveralls": "jest -c .jest-config.json --coverage && ./coverage/lcov.info | coveralls"
   },
   "keywords": [
     "redux"
