@@ -1,7 +1,7 @@
 {
   "name": "@tjoussen/redux-helper",
   "version": "1.0.0",
-  "description": "This pacakge include helper functions to reduce the redux boilerplate for actions, reducer and middleware",
+  "description": "This package includes helper functions to reduce the redux boilerplate for actions, reducer and middleware",
   "main": "src/index.js",
   "files": [
     "src"
