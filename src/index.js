@@ -42,3 +42,15 @@ export const createAsyncAction = (types, promise, shouldCallPromise = () => true
         return action;
     };
 };
+
+export const createMiddleware = (handlers) => {
+    return ({dispatch, getState}) => {
+        return next => action => {
+            if(handlers.hasOwnProperty(action.type)) {
+                handlers[action.type](getState(), action, dispatch);
+            }
+
+            next(action);
+        };
+    };
+};
