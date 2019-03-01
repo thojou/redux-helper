@@ -1,5 +1,6 @@
 {
   "collectCoverage": true,
+  "coverageReporters": ["text-lcov"],
   "transform": {
     "^.+\\.js?$": "babel-jest"
   },
