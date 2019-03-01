@@ -6,7 +6,7 @@ describe('async-types-creator', () => {
             'my/action/request',
             'my/action/success',
             'my/action/failure',
-        ]
+        ];
 
         expect(generators.createAsyncActionTypes('my/action')).toEqual(expectedTypes);
     });
@@ -16,7 +16,7 @@ describe('async-types-creator', () => {
             'my.action.request',
             'my.action.success',
             'my.action.failure',
-        ]
+        ];
 
         expect(generators.createAsyncActionTypes('my.action', '.')).toEqual(expectedTypes);
     });

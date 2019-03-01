@@ -2,7 +2,7 @@ import * as generators from '../src/index';
 
 describe('action-generator', () => {
     it('should create a redux action creator', () => {
-        expect(generators.createAction('ACTION_TYPE', 'value')).toBeInstanceOf(Function)
+        expect(generators.createAction('ACTION_TYPE', 'value')).toBeInstanceOf(Function);
     });
 
     it('should create a redux action', () => {
@@ -23,24 +23,24 @@ describe('action-generator', () => {
         const action = generators.createAction('ACTION_TYPE', 'value');
 
         expect(action(1, 2)).toEqual(expectedAction);
-    })
+    });
 });
 
 describe('asnyc-action-generator', () => {
     it('should create a redux async action creator', () => {
         expect(generators.createAsyncAction(
             ['ASYNC_REQUEST', 'ASYNC_SUCCESS', 'ASYNC_FAILURE'],
-            (value) => new Promise(),
+            () => new Promise(),
             () => true,
             'value'
-        )).toBeInstanceOf(Function)
+        )).toBeInstanceOf(Function);
     });
 
     it('should create a redux async action', () => {
         const types = ['ASYNC_REQUEST', 'ASYNC_SUCCESS', 'ASYNC_FAILURE'];
         const asyncActionCreator = generators.createAsyncAction(
             types,
-            (value) => new Promise(),
+            () => new Promise(),
             () => true,
             'value'
         );
@@ -49,27 +49,27 @@ describe('asnyc-action-generator', () => {
         expect(asyncAction.types).toEqual(types);
         expect(asyncAction.promise).toBeInstanceOf(Function);
         expect(asyncAction.shouldCallPromise).toBeInstanceOf(Function);
-        expect(asyncAction.payload).toEqual({value: 1})
+        expect(asyncAction.payload).toEqual({value: 1});
     });
 
     it('should ignore extra parameters', () => {
         const types = ['ASYNC_REQUEST', 'ASYNC_SUCCESS', 'ASYNC_FAILURE'];
         const asyncActionCreator = generators.createAsyncAction(
             types,
-            (value) => new Promise(),
+            () => new Promise(),
             () => true,
             'value'
         );
         const asyncAction = asyncActionCreator(1, 2);
 
-        expect(asyncAction.payload).toEqual({value: 1})
+        expect(asyncAction.payload).toEqual({value: 1});
     });
 
     it('should throw an error if types array lentgh is not equals 3', () => {
         expect(() => {
             generators.createAsyncAction(
                 ['ASYNC_REQUEST', 'ASYNC_SUCCESS'],
-                (value) => new Promise()
+                () => new Promise()
             );
         }).toThrowError(new Error('The parameter `types` is expected to contain exactly 3 string elements'));
     });
@@ -78,7 +78,7 @@ describe('asnyc-action-generator', () => {
         expect(() => {
             generators.createAsyncAction(
                 ['ASYNC_REQUEST', 'ASYNC_SUCCESS', 'ASYNC_FAILURE'],
-                "stringValue"
+                'stringValue'
             );
         }).toThrowError(new Error('The parameter `promise` is expected to be a function'));
     });

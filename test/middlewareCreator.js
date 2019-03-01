@@ -31,13 +31,13 @@ describe('middleware-creator', () => {
         const middleware = generators.createMiddleware({
             [type]: (state, calledAction, dispatch) => {
                 expect(state).toEqual(store.getState());
-                expect(calledAction).toEqual(action)
-                dispatch('TEST DISPATCH')
+                expect(calledAction).toEqual(action);
+                dispatch('TEST DISPATCH');
             }
         });
-        const { store, invoke } = createMock(middleware)
+        const { store, invoke } = createMock(middleware);
         invoke(action);
-        expect(store.dispatch).toHaveBeenCalledWith('TEST DISPATCH')
-        expect(store.getState).toHaveBeenCalled()
+        expect(store.dispatch).toHaveBeenCalledWith('TEST DISPATCH');
+        expect(store.getState).toHaveBeenCalled();
     });
 });

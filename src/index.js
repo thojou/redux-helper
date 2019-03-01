@@ -7,7 +7,7 @@ export const createAction = (type, ...argNames) => {
         }
 
         return action;
-    }
+    };
 };
 
 export const createAsyncActionTypes = (type, delimiter = '/') => {
@@ -16,7 +16,7 @@ export const createAsyncActionTypes = (type, delimiter = '/') => {
         type + delimiter + 'success',
         type + delimiter + 'failure'
     ];
-}
+};
 
 export const createAsyncAction = (types, promise, shouldCallPromise = () => true, ...argNames) => {
     if (
