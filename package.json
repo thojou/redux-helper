@@ -9,7 +9,7 @@
   "scripts": {
     "publish": "npm run publish --public",
     "test": "jest -c .jest-config.json",
-    "test:coveralls": "jest -c .jest-config.json --coverageReporters=text-lcov && cat ./coverage/lcov.info || coveralls"
+    "test:coveralls": "jest -c .jest-config.json | coveralls"
   },
   "keywords": [
     "redux"
