@@ -1,0 +1,25 @@
+{
+  "name": "@tjoussen/redux-helper",
+  "version": "1.0.0",
+  "description": "This pacakge include helper functions to reduce the redux boilerplate for actions, reducer and middleware",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "publish": "npm run publish --public",
+    "test": "jest --passWithNoTests -c .jest-config.json --verbose"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "Thomas Joussen <tjoussen91@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "~7.2.3",
+    "@babel/core": "~7.3.4",
+    "@babel/preset-env": "~7.3.4",
+    "babel-jest": "~24.1.0",
+    "jest": "~24.1.0"
+  }
+}
