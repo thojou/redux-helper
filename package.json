@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "publish": "npm run publish --public",
-    "test": "jest --passWithNoTests -c .jest-config.json",
-    "test:coveralls": "jest --passWithNoTests -c .jest-config.json --coverageReporters=text-lcov | coveralls"
+    "test": "jest -c .jest-config.json",
+    "test:coveralls": "jest -c .jest-config.json --coverageReporters=text-lcov && coveralls < ./coverage/lcov.info"
   },
   "keywords": [
     "redux"
