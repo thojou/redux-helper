@@ -15,10 +15,8 @@ jobs:
     - stage: tag release
       if: branch =~ ^release\/.*$ AND tag IS blank
       script:
+        - git checkout ${TRAVIS_BRANCH}
         - npm version patch -m "Bump Version %s"
-        - git log -1
-        - git show
-        - git branch
         - git push -f https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git "${TRAVIS_BRANCH}"
     - stage: npm release
       if: tag IS present
