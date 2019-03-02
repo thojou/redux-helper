@@ -17,7 +17,7 @@ jobs:
       script:
         - npm version patch -m "Bump Version %s"
         - git log -1
-        - git push --tags https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git $TRAVIS_BRANCH
+        - git push https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git $TRAVIS_BRANCH
     - stage: npm release
       if: tag IS present
       deploy:
