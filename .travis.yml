@@ -14,8 +14,6 @@ jobs:
         - npm run coveralls
     - stage: tag release
       if: branch =~ ^release\/.*$ AND tag IS blank
-      before_script:
-        - git config --global push.default simple
       script:
         - npm version patch -m "Bump Version %s"
         - git log -1
