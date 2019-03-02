@@ -13,7 +13,7 @@ jobs:
         - npm run test:coverage
         - npm run coveralls
     - stage: tag release
-      if: branch =~ /^release\/.*$/ AND tag IS blank
+      if: branch =~ ^release\/.*$ AND tag IS blank
       script:
         - npm version patch
     - stage: npm release
