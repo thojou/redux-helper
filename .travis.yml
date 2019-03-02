@@ -8,6 +8,7 @@ cache:
 jobs:
   include:
     - stage: test
+      if: tag IS blank
       script:
         - npm run lint
         - npm run test:coverage
@@ -16,7 +17,7 @@ jobs:
       if: branch =~ ^release\/.*$ AND tag IS blank
       script:
         - git checkout ${TRAVIS_BRANCH}
-        - npm version patch -m "Bump Version %s"
+        - npm version patch -m "[skip ci] Bump Version %s"
         - git push --tags https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git "${TRAVIS_BRANCH}"
     - stage: npm release
       if: tag IS present
