@@ -14,9 +14,11 @@ jobs:
         - npm run coveralls
     - stage: tag release
       if: branch =~ ^release\/.*$ AND tag IS blank
+      before_script:
+        - git config --global push.default simple
       script:
         - npm version patch
-        - git push https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git HEAD --tags
+        - git push https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git --tags
     - stage: npm release
       if: tag IS present
       deploy:
