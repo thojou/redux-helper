@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "description": "This package includes helper functions to reduce the redux boilerplate for actions, reducer and middleware",
   "main": "src/index.js",
-  "files": [
-    "src"
-  ],
   "scripts": {
-    "publish": "npm run publish --public",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix; exit 0",
     "test": "jest -c .jest-config.json",
@@ -28,5 +24,8 @@
     "coveralls": "^3.0.3",
     "eslint": "^5.14.1",
     "jest": "~24.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
