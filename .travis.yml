@@ -3,24 +3,21 @@ node_js:
 - node
 cache:
   directories:
-  - node_modules
-script:
-- npm run lint
-- npm run test:coverage
-- npm run coveralls
+    - node_modules
 
 jobs:
   include:
+    - stage: test
+      script:
+        - npm run lint
+        - npm run test:coverage
+        - npm run coveralls
     - stage: tag release
-      node_js: "node"
+      if: branch =~ /^release\/.*$/
       script:
         - npm version patch
-      branches:
-        only:
-            - /^release\/.*$/
     - stage: npm release
       if: tag IS present
-      node_js: "node"
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
