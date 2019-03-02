@@ -17,8 +17,9 @@ jobs:
       before_script:
         - git config --global push.default simple
       script:
-        - npm version patch
-        - git push https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git --tags
+        - npm version patch -m "Bump Version %s"
+        - git log -1
+        - #git push --tags https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git
     - stage: npm release
       if: tag IS present
       deploy:
