@@ -5,6 +5,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/tjoussen/redux-helper/badge.svg?branch=master)](https://coveralls.io/github/tjoussen/redux-helper?branch=master)
 [![devDependencies Status](https://david-dm.org/tjoussen/redux-helper/dev-status.svg)](https://david-dm.org/tjoussen/redux-helper?type=dev)
 [![Inline docs](http://inch-ci.org/github/tjoussen/redux-helper.svg?branch=master)](http://inch-ci.org/github/tjoussen/redux-helper)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftjoussen%2Fredux-helper.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftjoussen%2Fredux-helper?ref=badge_shield)
 
 This package includes helper functions to reduce the redux boilerplate for actions, reducer and middleware
 
@@ -13,3 +14,7 @@ This package includes helper functions to reduce the redux boilerplate for actio
 `npm install --save @tjoussen/redux-helper`
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftjoussen%2Fredux-helper.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftjoussen%2Fredux-helper?ref=badge_large)
