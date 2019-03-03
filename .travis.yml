@@ -8,14 +8,11 @@ cache:
 jobs:
   include:
     - stage: test
+      if: tag IS blank
       script:
         - npm run lint
         - npm run test:coverage
         - npm run coveralls
-    - stage: tag release
-      if: branch =~ /^release\/.*$/
-      script:
-        - npm version patch
     - stage: npm release
       if: tag IS present
       deploy:
