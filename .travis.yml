@@ -13,12 +13,6 @@ jobs:
         - npm run lint
         - npm run test:coverage
         - npm run coveralls
-    - stage: tag release
-      if: tag IS blank AND branch =~ ^release\/.*$
-      script:
-        - git checkout ${TRAVIS_BRANCH}
-        - npm version patch -m "Bump Version %s"
-        - git push --follow-tags https://${GITHUB_TOKEN}@github.com/tjoussen/redux-helper.git "${TRAVIS_BRANCH}"
     - stage: npm release
       if: tag IS present
       deploy:
