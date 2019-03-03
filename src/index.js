@@ -1,6 +1,10 @@
-
-
-
+/**
+ * Create an action.
+ *
+ * @param type
+ * @param argNames
+ * @returns {function(...[*]): {type: *}}
+ */
 export const createAction = (type, ...argNames) => {
     return (...args) => {
         let action = { type };
@@ -13,6 +17,13 @@ export const createAction = (type, ...argNames) => {
     };
 };
 
+/**
+ * Create request, success and failure type for async actions.
+ *
+ * @param {string} type - The type base name
+ * @param {string} delimiter - A delimiter string
+ * @returns {string[]}
+ */
 export const createAsyncActionTypes = (type, delimiter = '/') => {
     return [
         type + delimiter + 'request',
@@ -21,22 +32,22 @@ export const createAsyncActionTypes = (type, delimiter = '/') => {
     ];
 };
 
+/**
+ * Create an async action.
+ *
+ * @param {string[]} types             - An array with async action types.
+ * @param {Function} promise           - The async action to be executed
+ * @param {Function} shouldCallPromise - Function to determine if the promise should be executed.
+ * @param {...*}     argNames          - List of all property names which will passed as payload.
+ * @returns {function(...[*]): {types: *, payload: {}, shouldCallPromise: (function(): boolean), promise: *}}
+ */
 export const createAsyncAction = (types, promise, shouldCallPromise = () => true, ...argNames) => {
-    if (
-        !Array.isArray(types) ||
-        types.length !== 3 ||
-        !types.every(type => typeof type === 'string')
-    ) {
-        throw new Error('The parameter `types` is expected to contain exactly 3 string elements');
-    }
+    const actionTemplate = { types, promise, shouldCallPromise, payload: {} };
 
-    if (typeof promise !== 'function') {
-        throw new Error('The parameter `promise` is expected to be a function');
-    }
-
+    throwErrorOnInvalidAsyncAction(actionTemplate);
 
     return (...args) => {
-        const action = { types, promise, shouldCallPromise, payload: {} };
+        const action = { ...actionTemplate };
 
         for(const index in argNames) {
             action.payload[argNames[index]] = args[index];
@@ -87,7 +98,7 @@ export const throwErrorOnInvalidAsyncAction = (action) => {
         types.length !== 3 ||
         !types.every(type => typeof type === 'string')
     ) {
-        throw new Error('Expected an array of three string types.');
+        throw new Error('The parameter `types` is expected to contain exactly 3 string elements');
     }
 
     if (typeof promise !== 'function') {

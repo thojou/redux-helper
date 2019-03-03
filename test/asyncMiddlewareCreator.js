@@ -37,11 +37,11 @@ describe('async-middleware-creator', () => {
 
         expect(() => {
             invoke( { types: [] });
-        }).toThrowError(new Error('Expected an array of three string types.'));
+        }).toThrowError(new Error('The parameter `types` is expected to contain exactly 3 string elements'));
 
         expect(() => {
             invoke( { types: [1,2,3] });
-        }).toThrowError(new Error('Expected an array of three string types.'));
+        }).toThrowError(new Error('The parameter `types` is expected to contain exactly 3 string elements'));
     });
 
     it('should throw an error if promise is not a function', () => {
@@ -96,6 +96,7 @@ describe('async-middleware-creator', () => {
             });
 
     });
+
     it('should dispatch request and sucess action if promise resolves', () => {
         const { store } = createMock(middleware);
         const action = createAsyncActionMock(false);
