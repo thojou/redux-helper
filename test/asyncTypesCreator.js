@@ -1,4 +1,4 @@
-import * as generators from '../src/index';
+import * as generators from '../index';
 
 describe('async-types-creator', () => {
     it('should create async types', () => {

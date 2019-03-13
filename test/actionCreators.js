@@ -1,4 +1,4 @@
-import * as generators from '../src/index';
+import * as generators from '../index';
 
 describe('action-generator', () => {
     it('should create a redux action creator', () => {
