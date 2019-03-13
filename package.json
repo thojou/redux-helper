@@ -13,6 +13,10 @@
   "keywords": [
     "redux"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tjoussen/redux-helper.git"
+  },
   "author": "Thomas Joussen <tjoussen91@gmail.com>",
   "license": "MIT",
   "devDependencies": {
