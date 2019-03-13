@@ -1,6 +1,6 @@
 {
   "name": "@tjoussen/redux-helper",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "This package includes helper functions to reduce the redux boilerplate for actions, reducer and middleware",
   "main": "src/index.js",
   "scripts": {
